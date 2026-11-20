@@ -1,0 +1,22 @@
+query_id,query_text,language,technical_focus,source_type,review_status
+Q01,soil moisture sensor,en,Soil Moisture Sensing,Benchmark,APPROVED
+Q02,wireless irrigation controller,en,Irrigation Control,Benchmark,APPROVED
+Q03,series RLC circuit,en,Resonant Circuit Electronics,Benchmark,APPROVED
+Q04,automatic irrigation,en,Automated Irrigation,Benchmark,APPROVED
+Q05,remote monitoring gateway,en,Wireless Gateway & Telemetry,Benchmark,APPROVED
+Q06,in-ground wireless probe,en,Underground Sensor Probe,Domain Specific,APPROVED
+Q07,capacitive moisture measurement,en,Capacitance Sensing,Domain Specific,APPROVED
+Q08,solenoid valve driver circuit,en,Valve Actuation & Control,Domain Specific,APPROVED
+Q09,temperature compensated soil sensor,en,Sensor Calibration & Temperature,Domain Specific,APPROVED
+Q10,low power mesh sensor network,en,Wireless Sensor Mesh Network,Domain Specific,APPROVED
+Q11,evapotranspiration weather controller,en,Meteorological Irrigation Control,Domain Specific,APPROVED
+Q12,resonant frequency soil impedance,en,RF Soil Dielectric Measurement,Domain Specific,APPROVED
+Q13,multi zone valve management,en,Agricultural Field Zone Control,Domain Specific,APPROVED
+Q14,battery powered telemetry node,en,Energy Efficient Sensor Node,Domain Specific,APPROVED
+Q15,soil moisture threshold interrupt,en,Hardware Comparator & Threshold,Domain Specific,APPROVED
+Q16,solar powered irrigation gateway,en,Renewable Energy Node,Domain Specific,APPROVED
+Q17,cloud based agricultural analytics,en,Farm Data Cloud Platform,Domain Specific,APPROVED
+Q18,dielectric permittivity probe,en,Physical Soil Property Sensing,Domain Specific,APPROVED
+Q19,ultrasonic water flow meter,en,Liquid Flow Measurement,Boundary Domain,APPROVED
+Q20,quantum blockchain cryptocurrency,en,Cryptographic Ledger (Off-domain Control),Negative Control,APPROVED
+

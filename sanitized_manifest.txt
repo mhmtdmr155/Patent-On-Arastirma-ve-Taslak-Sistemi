@@ -1,0 +1,119 @@
+======================================================================
+KSÜ BİLGİSAYAR MÜHENDİSLİĞİ BİTİRME PROJESİ
+KAYNAK KOD VE VERİ BÜTÜNLÜĞÜ SANİTİZE MANİFESTİ (PAT-0450-D01)
+======================================================================
+
+PROJE ADI:
+Yapay Zekâ Destekli Patent Ön Araştırma ve Patent Ön Taslağı Hazırlama Sistemi
+
+GÖREV:
+PAT-0450-D01 — 34 Patentin Kaynak Temelli Kimlik, Patent Ailesi ve Metadata Onarımı
+
+TARİH:
+06.11.2026
+
+GÜVENLİK VE GİZLİLİK BEYANI:
+Bu denetim paketi, bağımsız denetçi ChatGPT tarafından kaynak kodun
+ve veri bütünlüğünün doğrulanması amacıyla hazırlanmıştır. Pakette kişisel veriler,
+patent ham HTML metinleri, kullanıcı buluş açıklamaları, gizli ortam değişkenleri (.env),
+.git ve .venv klasörleri KESİNLİKLE YER ALMAMAKTADIR.
+
+======================================================================
+1. VERİ HAVUZU İSTATİSTİKLERİ VE DOSYA BİLGİLERİ (SANİTİZE)
+======================================================================
+
+1.1 Patent Korpusu (data/processed/patents.jsonl):
+- Toplam Patent Sayısı: 34 adet (8 pilot + 26 doğrulanmış genişletme)
+- Doğrulanmış Patent Numaraları ve Kaynak Hak Sahipleri:
+  * US10025284B2: Code replacement for irrigation controllers [Rain Bird Corp]
+  * US10085393B2: Long range, battery powered, wireless environmental sensor interface devices [Toro Co]
+  * US10107738B2: Moisture status measuring device that measures moisture status in soil [Casio Computer Co Ltd]
+  * US10327397B2: Irrigation control systems and methods [Rain Bird Corp]
+  * US10716269B2: Methods and systems for irrigation control [Rain Bird Corp - Ersavas lineage]
+  * US10782722B2: System and method for interactive demand response for controlling and routing power to one or more irrigation systems [Valmont Industries Inc]
+  * US10842090B2: Drip emitter [Rain Bird Corp]
+  * US11064664B2: Methods and systems for irrigation control [Rain Bird Corp - Ersavas lineage]
+  * US11089745B2: Systems and methods for planning crop irrigation [Supplant Ltd]
+  * US11457576B2: Intelligent irrigation system [Homgar International Inc]
+  * US11635402B2: Subsoil moisture monitoring system including battery-less wireless chipless sensors [Purdue Research Foundation]
+  * US11674944B2: In-ground wireless soil moisture sensor [Smart Rain Systems LLC]
+  * US12144295B1: Smart irrigation system [United Services Automobile Association USAA]
+  * US6657443B2: Absolute-reading soil moisture and conductivity sensor [Technical Development Consultants Inc]
+  * US6831468B2: Method and apparatus for determining moisture content and conductivity [Technical Development Consultants Inc - Acclima CIP]
+  * US6904789B2: Moisture detection apparatus and method [Decagon Devices Inc]
+  * US7133749B2: Method and apparatus for optimizing soil moisture [Toro Co]
+  * US7170302B2: Capacitive soil moisture sensor [Individual]
+  * US7328089B2: Satellite irrigation controller [Toro Co]
+  * US7836910B2: Soil moisture sensor and controller [Rain Bird Corp - Dresselhaus lineage]
+  * US7844368B2: Irrigation water conservation with temperature budgeting and time of use technology [Individual / Hunter Assignee]
+  * US7884620B2: Sensor for measuring moisture and salinity [Green Badge LLC]
+  * US7944220B2: Moisture content sensor and related methods [Delta-T Devices Ltd]
+  * US8104498B2: Soil moisture sensor and controller [Rain Bird Corp - Dresselhaus lineage]
+  * US8244404B2: Modular and expandable irrigation controller [Rain Bird Corp]
+  * US8671969B2: Soil moisture sensor and controller [Rain Bird Corp - Dresselhaus lineage]
+  * US8706307B2: Programmable irrigation controller having user interface [Rain Bird Corp]
+  * US8849461B2: Methods and systems for irrigation control [Rain Bird Corp - Ersavas lineage]
+  * US8948921B2: System and method for smart irrigation [ET Water Systems Inc]
+  * US9241451B2: Methods and systems for irrigation control [Rain Bird Corp - Ersavas lineage]
+  * US9301461B2: Systems and methods to adjust irrigation [Hunter Industries Inc]
+  * US9468162B2: Irrigation controller wireless network adapter and networked remote service [Rain Bird Corp]
+  * US9594366B2: System and method for an improved sprinkler control system [Rachio Inc]
+  * US9804113B2: Soil moisture sensor [Fiskars Oyj]
+
+- Doğrulanmış Değerlendirme Grupları (3 çoklu aile, 25 bağımsız singleton = 28 değerlendirme grubu):
+  * FAM_US_DRESSELHAUS_SOIL_01: US7836910B2, US8104498B2, US8671969B2 (Rain Bird Corp, Google Patents Fam ID 36615521)
+  * FAM_US_IRR_WIRELESS_01: US8849461B2, US9241451B2, US10716269B2, US11064664B2 (Rain Bird Corp, Google Patents Fam ID 41495413 / TR 2008/05998)
+  * FAM_US_ACCLIMA_TDR_01: US6657443B2, US6831468B2 (TDC Inc / Acclima, CIP lineage)
+  * SINGLETON_US10025284B2, SINGLETON_US10085393B2, SINGLETON_US10107738B2, SINGLETON_US10327397B2,
+    SINGLETON_US10782722B2, SINGLETON_US10842090B2, SINGLETON_US11089745B2, SINGLETON_US11457576B2,
+    SINGLETON_US11635402B2, SINGLETON_US11674944B2, SINGLETON_US12144295B1, SINGLETON_US6904789B2,
+    SINGLETON_US7133749B2, SINGLETON_US7170302B2, SINGLETON_US7328089B2, SINGLETON_US7844368B2,
+    SINGLETON_US7884620B2, SINGLETON_US7944220B2, SINGLETON_US8244404B2, SINGLETON_US8706307B2,
+    SINGLETON_US8948921B2, SINGLETON_US9301461B2, SINGLETON_US9468162B2, SINGLETON_US9594366B2,
+    SINGLETON_US9804113B2
+
+1.2 Pasaj ve Parçalama Havuzu (data/processed/chunks.jsonl):
+- Toplam Pasaj (Chunk) Sayısı: 1504 pasaj
+- Bölüm Dağılımı: DESCRIPTION: 1360, BACKGROUND: 76, TITLE: 34, ABSTRACT: 34
+- Parçalama Kuralı: 200-500 kelime aralığında, bölüm duyarlı (DESCRIPTION, BACKGROUND, TITLE, ABSTRACT)
+
+1.3 Teknik Sorgu Havuzu (data/annotations/queries.csv):
+- Toplam Sorgu Sayısı: 20 teknik sorgu (Q01 - Q20)
+- Teknik Alan: Tarımsal sensörler, toprak nem algılama, kablosuz sulama otomasyonu
+
+1.4 Aday Kuyruğu ve Etiketleme Verisi (data/annotations/labeling_queue.csv):
+- Toplam Çift Sayısı: 680 çift (20 sorgu x 34 patent = 680 tam Kartezyen uzay)
+- BM25 Pozitif Aday Sayısı (Skor > 0.0): 557 çift
+- BM25 Sıfır Skorlu Çift Sayısı (Skor == 0.0000): 123 çift
+- İnsan Tarafından Etiketlenmiş Çift: 0 (Sıfır sentetik etiket garantisi)
+- Bekleyen İnceleme: 680 çift
+- CSV Sütunları:
+  pair_id, query_id, query_text, publication_number, patent_title, source_url,
+  family_id, evaluation_group_id, bm25_score, bm25_rank, bm25_candidate,
+  evidence_chunk_id, human_relevance_label, reviewer_id, review_status,
+  review_notes, reviewed_at
+
+======================================================================
+2. YAZILIM MİMARİSİ VE MODÜLLER
+======================================================================
+
+- app.py: Ana Streamlit patent ön araştırma uygulaması
+- tools/labeling_app.py: İnsan denetimli yerel Streamlit etiketleme aracı
+- src/retrieval/bm25_engine.py: BM25 leksikal arama ve pasaj birleştirme motoru
+- src/retrieval/tokenizer.py: Teknik terim korumalı Unicode tokenizer
+- src/data/schema.py: source_family_id, family_verification_status, evaluation_group_id eklenmiş PatentRecord şeması
+- src/data/family.py: Doğrulanmış patent devam ilişkileri ve kaynaklı bağlantı fonksiyonu
+- src/data/pipeline.py: Kesilme korumalı (MAX_DOWNLOAD_BYTES + 1) indirme ve hatasız metadata ayrıştırıcı
+- src/ml/dataset.py: 28 değerlendirme grubu uyumlu PatentMLDataset
+- src/ml/label_store.py: os.replace ve os.fsync destekli atomik CSV saklama motoru
+- src/ml/features.py: 7 boyutlu yorumlanabilir sayısal özellik çıkarıcı
+- src/ml/splitting.py: Sızıntısız family_aware ve query_aware GroupKFold bölücü
+- src/ml/readiness.py: 10 bilimsel önkoşullu ML eğitim hazırlık denetleyicisi (NOT_READY)
+
+======================================================================
+3. TEST SUITE VE DOĞRULAMA
+======================================================================
+
+- Test Çatısı: pytest 9.2.0, anyio 4.16.0
+- Durum: %100 PASSED
+======================================================================

@@ -1,0 +1,87 @@
+# ==============================================================================
+# Patent Bitirme Projesi - .gitignore
+# ==============================================================================
+
+# A. Sanal Ortam (Virtual Environments)
+.venv/
+venv/
+ENV/
+env/
+
+# B. Python Geçici Dosyaları ve Önbellekler
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+parts/
+sdist/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# C. Gizli Yapılandırmalar ve Ortam Değişkenleri
+.env
+.env.*
+!.env.example
+
+# D. Özel Güvenlik Anahtarları ve Sertifikalar
+*.pem
+*.key
+*.cert
+*.crt
+id_rsa*
+
+# E. Geçici Dosyalar ve Günlükler
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# F. İleride Oluşabilecek Büyük / Gizli Veriler ve Çıktılar
+data/raw/
+data/processed/
+data/private/
+models/
+outputs/
+
+# G. Model Ağırlıkları ve İkili Makine Öğrenimi Dosyaları
+*.gguf
+*.safetensors
+*.pt
+*.pth
+*.onnx
+
+# H. Hassas İnsan Anotasyon Verileri (Human Relevance Labels & Reviews)
+data/annotations/labeling_queue.csv
+data/annotations/*backup*.csv
+data/annotations/*export*.csv
+data/annotations/*.tmp
+!data/annotations/queries.csv
+
+# I. Arşivler ve Denetim Paketleri
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+artifacts/*.zip
+
+# J. Yerel Veri Yedekleri ve Geçici Klasörler
+data/processed_backup*/
+

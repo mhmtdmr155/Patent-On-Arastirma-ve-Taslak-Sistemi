@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "dataset_version": "0.2.0-pilot",
+  "created_at": "2026-11-20T13:49:19.619316+00:00",
+  "technical_domain": "Smart Irrigation and Soil Moisture Monitoring",
+  "source_type": "Google Patents Public HTML Mirror",
+  "total_patents": 34,
+  "total_chunks": 1504,
+  "files": {
+    "patents_jsonl": {
+      "path": "data/processed/patents.jsonl",
+      "size_bytes": 2623638,
+      "sha256": "38bfefb5bef76ce57ed86225a4ac11a791a694841292cfbd0a21605e5dc807ab",
+      "record_count": 34
+    },
+    "chunks_jsonl": {
+      "path": "data/processed/chunks.jsonl",
+      "size_bytes": 3056159,
+      "sha256": "0ec04cd24991fa7f8106ecb37e3f1948479ac3e5855004b0fac9a6dc3c774747",
+      "chunk_count": 1504
+    }
+  },
+  "status_summary": {
+    "FULL_TEXT_VERIFIED": 34,
+    "ABSTRACT_VERIFIED": 0,
+    "METADATA_VERIFIED": 0,
+    "PARTIAL": 0,
+    "FAILED": 0
+  },
+  "reproduction_instruction": ".\\.venv\\Scripts\\python.exe scripts/patent_source_probe.py --run-pipeline"
+}
